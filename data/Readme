@@ -1,0 +1,2 @@
+The dataset of PDEs utilized in PDE discovery for proof-of-concept  
+The way to read these dataset can be found in the surrogate_model.py in the codes
