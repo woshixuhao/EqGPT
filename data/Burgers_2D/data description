@@ -1,0 +1,3 @@
+The true PDE form is written as follows:  
+ut+(uux+uuy)-0.01(uxx+uyy)=0
+The dataset is the grid data of 101 spatial observation points, 51 spatial observation points, and 100 temporal observation points. The data size is 515,100.
