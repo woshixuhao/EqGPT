@@ -1,0 +1,3 @@
+The Allen-Chan equation, which is a nonlinear reaction-diffusion equation that describes the phase separation of multi-component metal alloys[32], is written as:  
+ut-0.003uxx-u+u^3=0	
+The dataset is grid data of 256 spatial observation points in the domain x$\in$(-1,1) and 201 temporal observation points in the domain t$\in$(0,10], and thus the data size is 51,456.  
