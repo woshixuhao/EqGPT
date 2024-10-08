@@ -1,0 +1,5 @@
+The equation is from the math handbook*, the form is:
+0.1uxt+ut+0.1ux=0
+The dataset is grid data of 500 spatial observation points in the domain [0,5] and 500 temporal observation points in the domain [0,10], and thus the data size is 250,000.
+
+*Debnath, L. & Debnath, L. Nonlinear Partial Differential Equations for Scientists and Engineers. (Springer, 2005).
