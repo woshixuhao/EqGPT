@@ -1,0 +1,3 @@
+The Chaffee-infante equation, which is widely used in numerous fields, such as environmental science, fluid dynamics, high-energy physics and electronic science, is written as:
+ut-uxx+u-u^3=0
+The dataset is grid data of 301 spatial observation points and 200 temporal observation points, and thus the data size is 60,200.
