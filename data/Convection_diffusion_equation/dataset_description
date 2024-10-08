@@ -1,0 +1,3 @@
+The convection-diffusion equation, which can be employed to describe the transport of substance in a fluid (e.g., contaminant transport), is written as:
+ut+ux-0.25uxx=0
+The dataset is grid data of 256 spatial observation points in the domain [0,2] and 100 temporal observation points in the domain [0,1], and thus the data size is 25,600.
