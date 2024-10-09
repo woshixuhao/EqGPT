@@ -1,0 +1,3 @@
+The Korteweg-De Vries (KdV) equation, which is utilized to describe the evolution of one-dimensional shallow-water waves, is written as:
+ut+uux+0.0025uxxx=0	
+The dataset is grid data of 512 spatial observation points in the domain [-1,1) and 201 temporal observation points in the domain [0,1], and thus the data size is 102,912.
