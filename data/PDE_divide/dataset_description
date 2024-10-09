@@ -1,0 +1,3 @@
+The governing equation is:
+ut+ux/x+0.25uxx=0
+The dataset is grid data of 100 spatial observation points in the domain [1,2] and 251 temporal observation points in the domain [0,1], and thus the data size is 25,100.
