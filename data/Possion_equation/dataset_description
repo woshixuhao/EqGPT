@@ -1,0 +1,3 @@
+The governing equation on a disk region:
+uxx+uyy=0
+The data is collected according to the polar coordinates, where r in [0.001,1.4926] with 200 observation points and thea in [0,2pi] with 201 observation points.
