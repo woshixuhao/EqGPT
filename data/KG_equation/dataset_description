@@ -1,0 +1,3 @@
+The Klein-Gordon (KG) equation, which was first proposed by Oskar Klein and Walter Gordon in 1926 to describe the behavior of electrons in relativistic settings, is written as:
+utt-0.5uxx+5u=0
+The dataset is grid data of 201 spatial observation points in the domain [-1,1] and 201 temporal observation points in the domain [0,3], and thus the data size is 40,401.
