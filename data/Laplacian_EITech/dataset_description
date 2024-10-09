@@ -1,0 +1,3 @@
+Governing equation with EIAS region:
+uxx+uyy+1=0
+The data is collected in a rectangular region with 800 spatial observations and 200 temporal observations.
