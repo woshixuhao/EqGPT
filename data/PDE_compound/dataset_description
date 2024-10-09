@@ -1,0 +1,3 @@
+The governing equation is:
+ut-0.2(uux)x=0
+The dataset contains the grid data of 200 spatial observation points in the domain [0,1] and 200 temporal observation points in the domain [0,1]
