@@ -29,6 +29,7 @@ matplotlib==3.8.4
   - Poisson's equation solved in "EITech" region
   - Poisson's equation solved in 3D space shuffle region (too big, provide in figshare)
   - The simulation of the vibration of an H-shaped elastic membrane (too big, provide in figshare)
+* Note: big datasets are provided in figshare: 10.6084/m9.figshare.27195066, or seach "Generative Discovery of Partial differential Equation by Learning from Math Handbooks" on the figshare website.  
 
 # How to reproduce our work?
 1. Install relevant packages (~20 min)  
