@@ -35,7 +35,7 @@ matplotlib==3.8.4
 1. Install relevant packages (~20 min)  
 2. Run the surrogate_model.py (about 2 min for training the EqGPT model and 1~10 min {according to the data_num} for training the surrogate model from sparse and noisy data)
    This work utilize the GPU acceleration by Nvidia Gefore GTX 4090D  
-3. Run the continue_train_GPT.py to fine-tune the EqGPT with the rewards of generated PDEs calculated through meta-data and discover the optimal PDE structure (2~5 min).
+3. Run the continue_train_GPT.py to fine-tune the EqGPT with the rewards of generated PDEs calculated through meta-data and discover the optimal PDE structure (1~5 min).
 4. Run the PINN_optimization.py to further optimize the coefficients of discovered PDEs via PINN (~1 min).
 * Note: the continue_train_GPT.py is controlled by the parameters in surrogate_model.py (i.e., Equation_name, data_num, noise level, etc)  
 
