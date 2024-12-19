@@ -22,7 +22,6 @@ dict_datas = json.load(open('dict_datas_0725.json', 'r'))
 word2id = dict_datas["word2id"]
 id2word = dict_datas["id2word"]
 
-# 忽略UserWarning
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 def get_sub_set(nums):
@@ -90,7 +89,7 @@ def train_step(model, data_loader, optimizer, criterion, clip=1, print_every=Non
     if print_every == 0:
         print_every = 1
 
-    print_loss_total = 0  # 每次打印都重置
+    print_loss_total = 0 
 
     epoch_loss = 0
 
@@ -109,7 +108,6 @@ def train_step(model, data_loader, optimizer, criterion, clip=1, print_every=Non
         epoch_loss += loss.item()
         loss.backward()
 
-        # 梯度裁剪
         torch.nn.utils.clip_grad_norm_(model.parameters(), clip)
 
         optimizer.step()
