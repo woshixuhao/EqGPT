@@ -5,28 +5,6 @@ import matplotlib.pyplot as plt
 
 device='cuda'
 
-class PINNLossFunc(nn.Module):
-    def __init__(self,h_data_choose):
-        super(PINNLossFunc,self).__init__()
-        self.h_data=h_data_choose
-        return
-
-
-    def forward(self,prediction,left,coef,iter,Library):
-        res=left
-
-        f1=torch.pow((prediction-self.h_data),2).mean()
-        for i in range(Library.shape[1]):
-            res=res-Library[:,i].reshape(Library.shape[0],1)*coef[i]
-        f2=torch.pow(res,2).mean()
-
-
-        kesi = 0.01
-
-        MSE=f1 + kesi*f2
-        return MSE
-
-
 
 def Generate_meta_data(Net,Equation_name, choose, noise_level, trail_num, Load_state, x_low, x_up, t_low, t_up, nx=100,
                        nt=100, ):
@@ -203,7 +181,6 @@ irrgular_3D_regions=['Laplacian_shuttle']
 temporal_3D_PDEs=['Laplacian_H','Burgers_2D']
 #============Get origin data===========
 if Equation_name=='Wave_equation':
-    # 读取数据
     data_path = f'data/{Equation_name}/wave.mat'
     data = scio.loadmat(data_path)
     un = data.get("u")
@@ -213,9 +190,7 @@ if Equation_name=='Wave_equation':
     x_up = 3
     t_low = 0.2
     t_up = 6
-    target=[[2]]
     Left = 'u_tt'
-    epi = 1e-2
     Delete_equation_name='(1.2.10)'
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='Burgers_equation':
@@ -228,9 +203,7 @@ if Equation_name=='Burgers_equation':
     x_up = 10
     t_low = 0
     t_up = 10
-    target=[[2],[0,1]]
     Left = 'u_t'
-    epi = 5e-4
     Delete_equation_name = 'Bateman-Burgers equation'
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='KdV_equation':
@@ -243,9 +216,7 @@ if Equation_name=='KdV_equation':
     x_up = 0.8
     t_low = 0.1
     t_up = 0.9
-    target = [[3], [0, 1]]
     Left = 'u_t'
-    epi = 1e-1
     Delete_equation_name='KdV equation'
     Activation_function = "Sin"  # 'Tanh','Rational'
 if Equation_name=='Chaffee_Infante_equation':
@@ -256,7 +227,6 @@ if Equation_name=='Chaffee_Infante_equation':
     x_up = 2.5
     t_low = 0.15
     t_up = 0.45
-    target = [[2], [0],[0,0,0]]
     Left = 'u_t'
     Delete_equation_name='Chafee–Infante equation'
     Activation_function = 'Rational'  # 'Tanh','Rational'
@@ -270,10 +240,7 @@ if Equation_name=='KG_equation':
     x_up = 0.8
     t_low = 0.3
     t_up = 2.7
-    target = [[2], [0]]
     Left = 'u_tt'
-    epi=0.1
-    #epi=0.001
     Delete_equation_name='Klein–Gordon_u'
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='Allen_Cahn':
@@ -288,7 +255,6 @@ if Equation_name=='Allen_Cahn':
     t_up = 9
     target = [[2], [0],[0,0,0]]
     Left = 'u_t'
-    epi = 5e-4
     Delete_equation_name='Chafee–Infante equation'
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='Convection_diffusion_equation':
@@ -311,7 +277,6 @@ if Equation_name=='PDE_divide':
     #Also Eq.(8.14.1d)
     target = 'ut+ux/x+0.25uxx=0'
     Left = 'u_t'
-    epi=1e-2
 
     data_path = f'data/{Equation_name}/PDE_divide.npy'
     un= np.load(data_path).T
@@ -334,8 +299,7 @@ if Equation_name=='Eq_6_2_12':
     t_low = 0.4
     t_up = 9.6
     target='0.1*uxt+0.1*ux+ut=0'
-    Left = 'u_t'
-    epi = 1e-2
+    Left = 
     Delete_equation_name = '6.2.12'
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='PDE_compound':
@@ -351,7 +315,6 @@ if Equation_name=='PDE_compound':
     t_up = 0.45
     target='ut+0.2(uux)x=0'
     Left = 'u_t'
-    epi = 1e-3
     Delete_equation_name = ''
     Activation_function = 'Rational'  # 'Tanh','Rational'
 if Equation_name=='Possion_x_y':
