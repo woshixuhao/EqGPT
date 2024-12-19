@@ -9,6 +9,9 @@ dict_datas = json.load(open('dict_datas_0725.json', 'r'))
 word2id = dict_datas["word2id"]
 id2word= dict_datas["id2word"]
 
+'''
+This code defines the eqgpt model and functions for training eqgpt
+'''
 
 vocab_size = len(word2id)
 max_pos = 50
@@ -231,11 +234,13 @@ class GPT(nn.Module):
 
         prob=nn.functional.softmax(projected, dim=2)
         prob=prob[0,-1].squeeze(0)
-        prob_filter=prob*mask_invalid
+        prob_filter=prob*mask_invalid  #mask invalid terms
+        #operators and terms are alternate, for even location, it is operator
         if dec_input.shape[1] % 2 == 0:
             prob_filter[0]=0
             prob_filter[5:]=0
             prob_filter = prob_filter / torch.sum(prob_filter)
+         #for even location, it is term
         if dec_input.shape[1] % 2 == 1:
             prob_filter[0:6]=0
             prob_filter = prob_filter / torch.sum(prob_filter)
