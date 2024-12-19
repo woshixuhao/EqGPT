@@ -221,68 +221,6 @@ class GPT(nn.Module):
         dec_logits = self.projection(dec_outputs)
         return dec_logits.view(-1, dec_logits.size(-1)), dec_self_attns
 
-    def greedy_decoder(self, dec_input):
-
-        terminal = False
-        start_dec_len = len(dec_input[0])
-        # 一直预测下一个单词，直到预测到"<sep>"结束，如果一直不到"<sep>"，则根据长度退出循环，并在最后加上”<sep>“字符
-        while not terminal:
-            if len(dec_input[0]) > max_pos-1:
-                next_symbol = word2id['E']
-                dec_input = torch.cat(
-                    [dec_input.detach(), torch.tensor([[next_symbol]], dtype=dec_input.dtype, device=device)], -1)
-                break
-            dec_outputs, _ = self.decoder(dec_input)
-            projected = self.projection(dec_outputs)
-
-            prob = nn.functional.softmax(projected, dim=2)
-            prob = prob[0, -1].squeeze(0)
-
-            if dec_input.shape[1]%2==1:
-                prob[1:4]=prob[1:4]/torch.sum(prob[1:4])
-                prob[0]=0
-                prob[4:]=0
-            if dec_input.shape[1]%2==0:
-                prob[1:4]=0
-                prob=prob/torch.sum(prob)
-
-            next_word = np.random.choice(np.arange(0, vocab_size, 1), p=prob.cpu().data.numpy().ravel())
-
-            next_symbol = next_word
-            if next_symbol == word2id["E"]:
-                terminal = True
-
-            dec_input = torch.cat(
-                [dec_input.detach(), torch.tensor([[next_symbol]], dtype=dec_input.dtype, device=device)], -1)
-
-
-        return dec_input
-
-    def answer(self, sentence):
-        # 把原始句子的\t替换成”<sep>“
-
-        dec_input=sentence
-        #dec_input = [word2id.get(word, 1) for word in sentence]
-
-        dec_input = torch.tensor(dec_input, dtype=torch.long, device=device).unsqueeze(0)
-
-
-        output = self.greedy_decoder(dec_input).squeeze(0)
-
-        out = [id2word[int(id)] for id in output]
-        # 统计"<sep>"字符在结果中的索引
-        end_indexs = []
-        for i in range(len(out)):
-            if out[i] == "E":
-                end_indexs.append(i)
-
-        # 取最后两个sep中间的内容作为回答
-
-        answer = out[0:end_indexs[-1]]
-
-        answer = "".join(answer)
-        return answer
-
     def step(self,sentence,mask_invalid):
         dec_input = sentence
         # dec_input = [word2id.get(word, 1) for word in sentence]
