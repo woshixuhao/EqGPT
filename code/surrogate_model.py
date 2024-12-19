@@ -578,6 +578,9 @@ def train_surrogate_model(Net,un):
 
 
 def get_meta(Net):
+    '''
+    generate meta-data
+    '''
     best_epoch = np.load(f'model_save/{Equation_name}/{choose}_{noise_level}_{trail_num}({noise_type})/best_epoch.npy')[
         0]
     print("best_epoch:", best_epoch)
