@@ -225,17 +225,6 @@ class NN(torch.nn.Module):
 
 
 
-#自定义损失函数
-class PINNLossFunc(nn.Module):
-    def __init__(self,h_data_choose):
-        super(PINNLossFunc,self).__init__()
-        self.h_data=h_data_choose
-        return
-
-    def forward(self,prediction):
-        f1=torch.pow((prediction-self.h_data),2).sum()
-        MSE=f1
-        return MSE
 
 def random_data(total, choose,choose_validate,x,t,un,x_num,t_num,random_seed=525):
     random.seed(random_seed)
