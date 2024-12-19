@@ -6,6 +6,10 @@ from calculate_terms import *
 import warnings
 from torch.utils.data import TensorDataset,DataLoader
 
+'''
+After discovering the structure of the PDE, we use PINN to further optimize the coefficients
+'''
+
 warnings.filterwarnings('ignore')
 device='cuda'
 
