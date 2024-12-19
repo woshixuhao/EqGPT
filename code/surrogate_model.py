@@ -3,6 +3,11 @@ from neural_network import  *
 from train_gpt import *
 import matplotlib.pyplot as plt
 
+'''
+This code is utilized for training the surrogate model from sparse and noisy data.
+The surroagte model is utilized to generate meta-data and calculate derivates.
+'''
+
 device='cuda'
 
 
