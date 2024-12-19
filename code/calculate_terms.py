@@ -1,6 +1,11 @@
 import numpy as np
 import torch
 import json
+
+'''
+This is some functions for calculating the terms for the generated PDEs
+'''
+
 dict_datas = json.load(open('dict_datas_0725.json', 'r'))
 word2id = dict_datas["word2id"]
 id2word= dict_datas["id2word"]
