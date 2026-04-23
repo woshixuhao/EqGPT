@@ -1,6 +1,19 @@
 # PDEGPT
 The data and codes for "Generative Discovery of Partial differential Equation by Learning from Math Handbooks"
 
+## Paper
+
+For more details, please refer to our paper:  
+https://www.nature.com/articles/s41467-025-65114-2
+
+## Clarification
+
+In Supplementary Information Table S4, **C1, C2, and C3** represent the coefficients of the discovered equation for **unidirectional, irregular focused wave groups as they approach the onset of breaking**:
+
+\[
+\eta_t^* + C_1 \eta_x^* + C_2 \eta_{xxx}^* + C_3 (\eta^{*2})_{xxx} = 0
+\]
+
 # Environments
 python==3.12.4   
 pandas==2.2.2  
