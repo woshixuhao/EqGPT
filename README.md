@@ -11,8 +11,7 @@ https://www.nature.com/articles/s41467-025-65114-2
 In Supplementary Information Table S4, **C1, C2, and C3** represent the coefficients of the discovered equation for **unidirectional, irregular focused wave groups as they approach the onset of breaking**:
 
 ```math
-\eta_t^* + C_1 \eta_x^* + C_2 \eta_{xxx}^* + C_3 (\eta^{*2})_{xxx} = 0
-
+\eta_t^* + C_1 \eta_x^* + C_2 \eta_{xxx}^* + C_3 (\eta^{*2})_{xxx} = 0  
 
 ## Environments
 python==3.12.4   
